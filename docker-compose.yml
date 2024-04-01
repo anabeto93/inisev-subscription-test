@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel-app
+    container_name: laravel-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /app/public
+    volumes:
+      - ./:/app/public
+    ports:
+      - 8024:443
+    networks:
+      - sub-network
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: dbadmin
+      MYSQL_ROOT_PASSWORD: Pass1234
+    networks:
+      - sub-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - sub-network
+
+networks:
+  sub-network:
+    driver: bridge
