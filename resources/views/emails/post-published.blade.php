@@ -45,7 +45,7 @@
         </p>
         <p>
             Best regards,<br>
-            The [Your Website Name] Team
+            The {{ config('app.name') }} Team
         </p>
     </div>
 </body>
