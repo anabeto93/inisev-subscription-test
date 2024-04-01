@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\DTOs\ApiResponse;
 use App\DTOs\CreatePostDTO;
+use App\Jobs\NotifyUsersOfNewPostJob;
 use App\Models\Website;
 
 class PostService
@@ -20,6 +21,8 @@ class PostService
             'title' => $data->title,
             'content' => $data->content,
         ]);
+
+        dispatch(new NotifyUsersOfNewPostJob($post))->afterResponse();
 
         return ApiResponse::success('Post created.', 201, $post->toArray());
     }
