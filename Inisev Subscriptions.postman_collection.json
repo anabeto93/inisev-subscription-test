@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "b33483fe-3dc5-4ca4-8830-40351716ff07",
+		"name": "Inisev Subscriptions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1070506",
+		"_collection_link": "https://telaconnect.postman.co/workspace/PayApp~04143e06-d623-4ebf-a72e-be51339a3d7d/collection/1070506-b33483fe-3dc5-4ca4-8830-40351716ff07?action=share&source=collection_link&creator=1070506"
+	},
+	"item": [
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"website_id\": 1,\n    \"title\": \"Test 1\",\n    \"content\": \"First Post Content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8024/api/v1/posts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8024",
+					"path": [
+						"api",
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Failed Validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8024/api/v1/posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Apr 2024 13:32:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Caddy"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.4"
+						},
+						{
+							"key": "Content-Length",
+							"value": "235"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"declined\",\n    \"error_code\": 422,\n    \"message\": \"The given data was invalid.\",\n    \"data\": {\n        \"errors\": {\n            \"website_id\": [\n                \"The website id field is required.\"\n            ],\n            \"title\": [\n                \"The title field is required.\"\n            ],\n            \"content\": [\n                \"The content field is required.\"\n            ]\n        }\n    }\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"website_id\": 1,\n    \"title\": \"Test 1\",\n    \"content\": \"First Post Content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8024/api/v1/posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Apr 2024 13:34:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Caddy"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.4"
+						},
+						{
+							"key": "Content-Length",
+							"value": "230"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"error_code\": 201,\n    \"message\": \"Post created.\",\n    \"data\": {\n        \"title\": \"Test 1\",\n        \"content\": \"First Post Content\",\n        \"website_id\": 1,\n        \"updated_at\": \"2024-04-01T13:34:31.000000Z\",\n        \"created_at\": \"2024-04-01T13:34:31.000000Z\",\n        \"id\": 102\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Subscription",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Failed Validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8024/api/v1/subscriptions",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"api",
+								"v1",
+								"subscriptions"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Apr 2024 13:36:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Caddy"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.4"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"declined\",\n    \"error_code\": 422,\n    \"message\": \"The given data was invalid.\",\n    \"data\": {\n        \"errors\": {\n            \"user_id\": [\n                \"The user id field is required.\"\n            ],\n            \"website_id\": [\n                \"The website id field is required.\"\n            ]\n        }\n    }\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 5,\n    \"website_id\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8024/api/v1/subscriptions",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"api",
+								"v1",
+								"subscriptions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Apr 2024 13:37:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Caddy"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.4"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"error_code\": 201,\n    \"message\": \"Subscription created.\"\n}"
+				}
+			]
+		}
+	]
+}
