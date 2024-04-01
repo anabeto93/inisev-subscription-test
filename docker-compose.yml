@@ -27,8 +27,10 @@ services:
     container_name: mysql
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: dbadmin
+      MYSQL_DATABASE: subscription
+      MYSQL_USER: dbadmin
       MYSQL_ROOT_PASSWORD: Pass1234
+      MYSQL_PASSWORD: Pass1234
     networks:
       - sub-network
 
